@@ -11,8 +11,9 @@ Once included, simply import the package with
 To use it just wrap your view in the `DeviceTypeAdapter` view and provide the views for iPhone and iPad.
 
 ```swift
- DeviceTypeAdapter(
-    phone: Text("Phone"),
-    pad: Text("Pad")
- )
+    DeviceTypeAdapter {
+        Text("Phone")
+    } pad: {
+        Text("iPad")
+    }
 ```
