@@ -24,6 +24,11 @@ public struct DeviceTypeAdapter<T: View, S: View>: View {
     @ViewBuilder
     public var pad: S
 
+    public init(phone: T, pad: S) {
+        self.phone = phone
+        self.pad = pad
+    }
+
     public var body: some View {
         if deviceType == .pad {
             pad
