@@ -14,20 +14,19 @@ import SwiftUI
 ///    pad: Text("Pad")
 /// )
 public struct DeviceTypeAdapter<T: View, S: View>: View {
+    public init(@ViewBuilder phone: @escaping () -> T, @ViewBuilder pad: @escaping () -> S) {
+        self.phone = phone()
+        self.pad = pad()
+    }
+
     private let deviceType = UIDevice.current.userInterfaceIdiom
 
     /// The view to show on phone
-    @ViewBuilder
     public var phone: T
 
     /// The view to show on pad
     @ViewBuilder
     public var pad: S
-
-    public init(phone: T, pad: S) {
-        self.phone = phone
-        self.pad = pad
-    }
 
     public var body: some View {
         if deviceType == .pad {
